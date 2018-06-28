@@ -6,7 +6,7 @@ const repoUrl = "https://github.com/SarahSchmid/xyz";
 
 const Footer = () => {
     return(
-        <div id="Footer">
+        <div className="footer">
             <p>Made with React, JavaScript, custom CSS and many, many  <FontAwesomeIcon icon={faHeart}/></p>
             <p>Checkout the <a target="_blank" href={repoUrl}>repository for this site on Github</a></p>
             <p>Copyright by Sarah Schmid © 2018</p>
