@@ -5,7 +5,7 @@ const Header = () => {
     return(
         <div className="header">
             <div className="pageTitle">
-                Here goes...
+                Here goes
             </div>
             <img className="markerPic" src={MarkerPic}/>
         </div>
