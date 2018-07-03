@@ -46,3 +46,11 @@
   text-decoration: none;
   color: #3c91ff;
 }
+
+.infoBox h3 {
+  margin-bottom: 3px;
+}
+
+.infoBox .description {
+  margin-top: 10px;
+}
