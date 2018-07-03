@@ -1,21 +1,45 @@
 import React from 'react';
-import {compose, withProps} from "recompose"
-import {withScriptjs, withGoogleMap, GoogleMap, Marker} from "react-google-maps"
+import {withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow} from "react-google-maps"
+import '../Map.css'
 import markers from "./data/markerData"
 
+const {compose, withProps, withStateHandlers} = require("recompose");
+
 const Map = compose(
+    withStateHandlers(() => ({
+        isOpen: false,
+        showInfo: null
+    }), {
+        onToggleOpen: ({ isOpen }) => () => ({
+            isOpen: !isOpen,
+            showInfoIndex: null
+        }),
+        showInfo: ({showInfo,isOpen}) => (key) => ({
+            isOpen: !isOpen,
+            showInfoIndex: key
+        })
+
+    }),
     withProps({
         googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo&v=3.exp&libraries=geometry,drawing,places",
-        loadingElement: <div style={{ height: `100%` }} />,
-        containerElement: <div style={{ height: `500px`, width: '100%' }} />,
-        mapElement: <div style={{ height: `100%` }} />,
-    }), withScriptjs, withGoogleMap)(() => {
+        loadingElement: <div className="loadingElement" />,
+        containerElement: <div className="containerElement" />,
+        mapElement: <div className="mapElement" />,
+    }), withScriptjs, withGoogleMap)((props) => {
     return(
         <GoogleMap  defaultZoom={3}
                     defaultCenter={{lat: 39.910952, lng: -7.959756}}>
 
-            {markers.map(marker => (
-                <Marker position={{lat: marker.lat , lng: marker.lng}}/>
+            {markers.map((marker, index) => (
+                <Marker key={index}
+                        position={{lat: marker.lat , lng: marker.lng}}
+                        onClick={() => props.showInfo(index)}>
+                    {(props.showInfoIndex === index) &&
+                    <InfoWindow onCloseClick={props.onToggleOpen}>
+                        <div>{marker.name}</div>
+                    </InfoWindow>
+                    }
+                </Marker>
             ))}
         </GoogleMap>
     );
