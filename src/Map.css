@@ -10,3 +10,11 @@
 .mapElement {
     height: 100%;
 }
+
+.infoBox h3 {
+    margin: 0;
+}
+
+.infoBox .description {
+    margin-top: 10px;
+}

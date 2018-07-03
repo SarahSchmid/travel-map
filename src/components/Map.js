@@ -1,4 +1,5 @@
 import React from 'react';
+import InfoBox from './InfoBox';
 import {withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow} from "react-google-maps"
 import '../Map.css'
 import markers from "./data/markerData"
@@ -36,7 +37,7 @@ const Map = compose(
                         onClick={() => props.showInfo(index)}>
                     {(props.showInfoIndex === index) &&
                     <InfoWindow onCloseClick={props.onToggleOpen}>
-                        <div>{marker.name}</div>
+                        <InfoBox title={marker.title} location={marker.location} description={marker.description}/>
                     </InfoWindow>
                     }
                 </Marker>
