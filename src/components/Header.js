@@ -7,7 +7,7 @@ const Header = () => {
             <div className="pageTitle">
                 Here goes
             </div>
-            <img className="markerPic" src={MarkerPic}/>
+            <img className="markerPic" src={MarkerPic} alt="Marker"/>
         </div>
     );
 };
