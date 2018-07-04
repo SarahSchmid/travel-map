@@ -2,7 +2,7 @@ import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHeart} from '@fortawesome/fontawesome-free-solid';
 
-const repoUrl = "https://github.com/SarahSchmid/xyz";
+const repoUrl = "https://github.com/SarahSchmid/travel-map";
 
 const Footer = () => {
     return(
