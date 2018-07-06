@@ -32,7 +32,7 @@ module.exports = [
     {
         title: "Prater",
         location: "Vienna",
-        description:"A funfair that opens the whole year? Such a think doesn't exist? It does! It's called 'Wiener Prater' " +
+        description:"A funfair that opens the whole year? Such a thing doesn't exist? It does! It's called 'Wiener Prater' " +
                     "and it's located in the district Leopoldstadt. The ferriswheel is legendary and the view is incredible!",
         lat: 48.216941,
         lng: 16.398061
